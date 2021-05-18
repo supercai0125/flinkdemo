@@ -19,7 +19,7 @@ public class BatchWordCount {
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
         //读取数据
-        DataSource<String> input = env.readTextFile("D:\\flinkdemo\\batchworkcount.txt");
+        DataSource<String> input = env.readTextFile("src/main/resources/batchworkcount.txt");
 
         //统计数据
         DataSet<Tuple2<String, Integer>> res = input.flatMap(new MyflatMap()).groupBy(0).sum(1);
